@@ -1,0 +1,3 @@
+# Ignore the executable files
+*.exe
+!spec/*.exe
