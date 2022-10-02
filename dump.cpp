@@ -1,13 +1,13 @@
 #include <bits/stdc++.h>
 using namespace std;
+const int N = 1e5 + 10;
+int forward_arr[N], backward_arr[N], arr[N];
 int main()
 {
-    int n =3;
-    int arr[] = {6,9,3},result = arr[0];
-    for(int i=1;i<n;i++)
+    int t;
+    for(int i =1;i<5;i++)
     {
-        result = __gcd(arr[i],result);
+        cout<<forward_arr[i]<<" ";
     }
-    cout<<result;
     return 0;
 }
