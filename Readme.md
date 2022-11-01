@@ -45,9 +45,9 @@ int main()
 
 
 ### Problem Solving
-`October 2022`
+`November 2022`
 
-| Solved             | Monthly Target                                                                |
+| Solved             | Monthly Target                                                     |
 | -----------------  | ------------------------------------------------------------------ |
-| 7                  |                              30                                    |
+| 2                  |                              50                                    |
 
