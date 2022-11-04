@@ -1,8 +1,8 @@
-// Problem: C. Removing Smallest Multiples
-// Contest: Codeforces Round #822 (Div. 2)
-// URL: https://codeforces.com/problemset/problem/1734/C
+// Problem: A. Consecutive Sum
+// Contest: Codeforces Round #821 (Div. 2)
+// URL: https://codeforces.com/problemset/problem/1733/A
 // Memory Limit: 256 MB
-// Time Limit: 2000 ms
+// Time Limit: 1000 ms
   
  
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ //
@@ -14,10 +14,23 @@
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ //
 #include <bits/stdc++.h>
 using namespace std;
+#define ll long long
 
 void solve()
 {
-   
+    int n,k; cin>>n>>k;
+    ll sum=0,arr[k+1];
+    
+    for (int i=0;i<k+1;i++) arr[i]=0;
+    
+    for(int i=0;i<n;i++) 
+    {
+        ll num; cin>>num;
+        arr[i%k] = max(arr[i%k],num);
+    }
+    
+    for(int i=0; i<k; i++) sum += arr[i];
+    cout<<sum<<endl;
 }
 
 int main()
@@ -29,6 +42,3 @@ int main()
     }
     return 0;
 }
-//     3 4       4 9    11       14 15         
-// 1 1 0 0 1 1 1 0 0  1  0  1  1  0  0
-// 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15

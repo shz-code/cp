@@ -1,8 +1,8 @@
-// Problem: C. Removing Smallest Multiples
-// Contest: Codeforces Round #822 (Div. 2)
-// URL: https://codeforces.com/problemset/problem/1734/C
+// Problem: A. Two Groups
+// Contest: Codeforces Round #832 (Div. 2)
+// URL: https://codeforces.com/contest/1747/problem/0
 // Memory Limit: 256 MB
-// Time Limit: 2000 ms
+// Time Limit: 1000 ms
   
  
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ //
@@ -17,7 +17,14 @@ using namespace std;
 
 void solve()
 {
-   
+    int n; cin>>n;
+    int sum1=0,sum2=0;
+    for(int i=0;i<n;i++)
+    {
+        int x; cin>>x;
+        (x < 0 ? sum1-=x : sum2+=x);
+    }
+    cout<<abs(sum1-sum2)<<endl;
 }
 
 int main()
@@ -29,6 +36,3 @@ int main()
     }
     return 0;
 }
-//     3 4       4 9    11       14 15         
-// 1 1 0 0 1 1 1 0 0  1  0  1  1  0  0
-// 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15

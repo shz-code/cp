@@ -1,6 +1,6 @@
-// Problem: C. Removing Smallest Multiples
-// Contest: Codeforces Round #822 (Div. 2)
-// URL: https://codeforces.com/problemset/problem/1734/C
+// Problem: C. Minimize the Thickness
+// Contest: Codeforces Round #826 (Div. 3)
+// URL: https://codeforces.com/problemset/problem/1741/C
 // Memory Limit: 256 MB
 // Time Limit: 2000 ms
   
@@ -17,7 +17,30 @@ using namespace std;
 
 void solve()
 {
-   
+    int n; cin>>n;
+    int arr[n],sum=0,res=n;
+    for(int i=0;i<n;i++) cin>>arr[i];
+    
+    int cnt=0,check=0,max_index;
+    for(int i=0;i<n;i++)
+    {
+        sum += arr[i],cnt=0,check=0,max_index=i+1;
+        
+        for(int j=i+1;j<n;j++)
+        {
+            cnt++;
+            check += arr[j];
+            if(sum == check)
+            {
+                max_index = max(max_index,cnt);
+                cnt=0;
+                check=0;
+            }
+            else if(check > sum) break;
+        }       
+        if(cnt==0) res=min(res,max_index);
+    }
+    cout<<res<<endl;
 }
 
 int main()
@@ -29,6 +52,3 @@ int main()
     }
     return 0;
 }
-//     3 4       4 9    11       14 15         
-// 1 1 0 0 1 1 1 0 0  1  0  1  1  0  0
-// 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15
