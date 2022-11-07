@@ -1,6 +1,6 @@
-// Problem: B. BAN BAN (Wrong)
-// Contest: Codeforces Round #832 (Div. 2)
-// URL: https://codeforces.com/contest/1747/problem/B
+// Problem: A. Beautiful Matrix
+// Contest: Codeforces Round #161 (Div. 2)
+// URL: https://codeforces.com/problemset/problem/263/A
 // Memory Limit: 256 MB
 // Time Limit: 1000 ms
   
@@ -15,25 +15,22 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-void solve()
-{
-    int n; cin>>n;
-    cout<<n/2 + n%2<<endl;
-    int l = 1, r = 3*n;
-    while(l < r)
-    {
-    	cout<<l<<" "<<r<<endl;
-    	l += 3;
-    	r -= 3;
-    }
-}
-
 int main()
 {
-    int q; cin>>q;
-    while(q--)
+    int a[5][5];
+    int t_i,t_j;
+    for(int i=0;i<5;i++)
     {
-        solve();
+        for(int j=0;j<5;j++)
+        {
+            cin>>a[i][j];
+            if(a[i][j] == 1)
+            {
+                t_i = i;
+                t_j = j;
+            }
+        }
     }
+    cout<<abs(t_i-2)+abs(t_j-2);
     return 0;
 }

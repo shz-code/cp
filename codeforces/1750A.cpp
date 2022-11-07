@@ -1,6 +1,6 @@
-// Problem: B. BAN BAN (Wrong)
-// Contest: Codeforces Round #832 (Div. 2)
-// URL: https://codeforces.com/contest/1747/problem/B
+// Problem: A. Indirect Sort
+// Contest: CodeTON Round 3 (Div. 1 + Div. 2, Rated, Prizes!)
+// URL: https://codeforces.com/contest/1750/problem/A
 // Memory Limit: 256 MB
 // Time Limit: 1000 ms
   
@@ -18,14 +18,9 @@ using namespace std;
 void solve()
 {
     int n; cin>>n;
-    cout<<n/2 + n%2<<endl;
-    int l = 1, r = 3*n;
-    while(l < r)
-    {
-    	cout<<l<<" "<<r<<endl;
-    	l += 3;
-    	r -= 3;
-    }
+    int a[n];
+    for(int i=0;i<n;i++) cin>>a[i];
+    cout<< (a[0] == 1 ? "Yes" : "No") <<endl;
 }
 
 int main()
