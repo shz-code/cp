@@ -1,10 +1,8 @@
-// Problem: A. Number Replacement
-// Contest: Codeforces Round #828 (Div. 3)
-// URL: https://codeforces.com/problemset/problem/1744/A
-// Memory Limit: 256 MB
-// Time Limit: 2000 ms
-// Topic: Greedy
-// Problem Rating: 800
+// Problem: B. Permutation Value
+// Contest: Educational Codeforces Round 137 (Rated for Div. 2)
+// URL: https://codeforces.com/problemset/problem/1743/B
+// Memory Limit: 512 MB
+// Time Limit: 1000 ms
   
  
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ //
@@ -21,25 +19,12 @@ using namespace std;
 
 void solve()
 {
-	bool flag = true;
-    vector<pair<int,char>> v;
     int n; cin>>n;
     int a[n];
-    string s;
-    for(int i=0;i<n;i++) cin>>a[i];
-    cin>>s;
-    for(int i=0;i<n;i++)
-    {
-        v.push_back({a[i],s[i]});
-    }
-    sort(v.begin(),v.end());
-    for(auto it = v.begin(); it < v.end(); it++)
-    {
-    	auto nx = next(it,1);
-        if( nx == v.end() ) continue;
-        if((*it).first == (*nx).first && (*it).second != (*nx).second) flag = false;
-    }
-    cout<< (flag? "YES" : "NO") << endl;
+    for(int i=0;i<n;i++) a[i] = i+1;
+    cout<<a[0]<<" "<<a[n-1]<< " ";
+    for(int i=1;i<n-1;i++) cout<<a[i] <<" ";
+    cout<<endl;
 }
 
 int main()

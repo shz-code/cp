@@ -1,9 +1,9 @@
-// Problem: A. Beautiful Year
-// Contest: Codeforces Round #166 (Div. 2)
-// URL: https://codeforces.com/problemset/problem/271/A
+// Problem: B. Borze
+// Contest: Codeforces Beta Round #32 (Div. 2, Codeforces format)
+// URL: https://codeforces.com/problemset/problem/32/B
 // Memory Limit: 256 MB
 // Time Limit: 2000 ms
-// Topic: Brute Force
+// Topic: Implementation
   
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ //
 // ##                                                                         ## //
@@ -21,27 +21,22 @@ int main()
 {
     //Faster Input Output
     FAST
-    int n; cin>>n;
-    while(1)
+    string s; cin>>s;
+    for(int i=0;i<s.size();i++)
     {
-        n++;
-        bool flag = true;
-        string s = to_string(n);
-        for(int i=0;i<s.size();i++)
+        if(s[i] == '-' && s[i+1] == '-')
         {
-            for(int j=i+1;j<s.size();j++)
-            {
-            	if(s[i] == s[j])
-            	{
-            		flag = false;
-            		break;
-            	}
-            }
+            cout<<2;
+            i++;
         }
-        if(flag)
+        else if(s[i] == '-' && s[i+1] == '.')
         {
-        	cout<<n;
-        	break;
+            cout<<1;
+            i++;
+        }
+        else if(s[i] == '.')
+        {
+            cout<<0;
         }
     }
     return 0;

@@ -1,15 +1,17 @@
-// Problem: A. Beautiful Year
-// Contest: Codeforces Round #166 (Div. 2)
-// URL: https://codeforces.com/problemset/problem/271/A
+// Problem: A. Maxmina
+// Contest: Codeforces Global Round 23
+// URL: https://codeforces.com/problemset/problem/1746/A
 // Memory Limit: 256 MB
-// Time Limit: 2000 ms
-// Topic: Brute Force
+// Time Limit: 1000 ms
+// Topic: Greedy
+// Problem Rating: 800
   
+ 
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ //
 // ##                                                                         ## //
 // ##          Shahidul Alam || CSE,IUBAT || web.shahidul.alam@gmail.com      ## //
 // ##                                                                         ## //
-// ##                        Toph Handle : shz_code                             ## //
+// ##                        CF Handle : shz-code                             ## //
 // ##                                                                         ## //
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ //
 #include <bits/stdc++.h>
@@ -17,32 +19,27 @@ using namespace std;
 
 #define FAST  ios_base::sync_with_stdio(false);cin.tie(NULL);
 
+void solve()
+{
+    int n,k; cin>>n>>k;
+    bool flag = false;
+    for(int i=0;i<n;i++) 
+    {
+        int x; cin>>x;
+        if(x == 1) flag = true;
+    }
+    cout<< (flag? "YES" : "NO") <<endl;
+    
+}
+
 int main()
 {
     //Faster Input Output
     FAST
-    int n; cin>>n;
-    while(1)
+    int q; cin>>q;
+    while(q--)
     {
-        n++;
-        bool flag = true;
-        string s = to_string(n);
-        for(int i=0;i<s.size();i++)
-        {
-            for(int j=i+1;j<s.size();j++)
-            {
-            	if(s[i] == s[j])
-            	{
-            		flag = false;
-            		break;
-            	}
-            }
-        }
-        if(flag)
-        {
-        	cout<<n;
-        	break;
-        }
+        solve();
     }
     return 0;
 }
