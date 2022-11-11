@@ -1,10 +1,10 @@
-// Problem: B. Books
-// Contest: Codeforces Round #171 (Div. 2)
-// URL: https://codeforces.com/contest/279/problem/B
+// Problem: A. 2-3 Moves
+// Contest:Educational Codeforces Round 133 (Rated for Div. 2)
+// URL: https://codeforces.com/problemset/problem/1716/A
 // Memory Limit: 256 MB
-// Time Limit: 2000 ms
-// Topic: Implementation
-// Problem Rating: 1400
+// Time Limit: 1000 ms
+// Topic: Greedy
+// Problem Rating: 800
   
  
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ //
@@ -23,28 +23,17 @@ using namespace std;
 
 void solve()
 {
-	ll n,k,sum=0,cnt=0;
-    cin>>n>>k;
-    ll a[n];
-    for(ll i=0;i<n;i++) cin>>a[i];
-    for(ll i=0;i<n;i++) 
-    {
-    	sum += a[i];
-    	if(sum <= k)
-    	{
-    		cnt++;
-    	}
-    	else{
-    		sum -= a[i];
-    	}
-    }
-    cout<<cnt<<nl;
+	int x; cin>>x;
+    if(x == 1) cout<<2<<nl;
+    else if(x == 2) cout<<1<<nl;
+    else if(x%3 == 0) cout<<x/3<<nl;
+    else cout<<x/3+1<<nl;
 }
 int main()
 {
     //Faster Input Output
     FAST
-    int q=1; //cin>>q;
+    int q; cin>>q;
     while(q--)
     {
         solve();

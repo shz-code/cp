@@ -1,10 +1,10 @@
-// Problem: B. Books
-// Contest: Codeforces Round #171 (Div. 2)
-// URL: https://codeforces.com/contest/279/problem/B
+// Problem: B. Decode String
+// Contest: Codeforces Round #820 (Div. 3)
+// URL: https://codeforces.com/problemset/problem/1729/B
 // Memory Limit: 256 MB
-// Time Limit: 2000 ms
-// Topic: Implementation
-// Problem Rating: 1400
+// Time Limit: 1000 ms
+// Topic: String
+// Problem Rating: 800
   
  
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ //
@@ -18,33 +18,39 @@
 using namespace std;
 
 #define FAST  ios_base::sync_with_stdio(false);cin.tie(NULL);
-#define ll long long
-#define nl "\n"
+
 
 void solve()
 {
-	ll n,k,sum=0,cnt=0;
-    cin>>n>>k;
-    ll a[n];
-    for(ll i=0;i<n;i++) cin>>a[i];
-    for(ll i=0;i<n;i++) 
-    {
-    	sum += a[i];
-    	if(sum <= k)
-    	{
-    		cnt++;
-    	}
-    	else{
-    		sum -= a[i];
-    	}
-    }
-    cout<<cnt<<nl;
+	int n;
+	string s;
+	cin>>n>>s;
+	for(int i=0;i<n;i++)
+	{
+		string str = "";
+		if(s[i+2] == '0' && s[i+3] != '0')
+		{
+			str += s[i];
+			str += s[i+1];
+			int data = stoi(str);
+			char c = 96 + data;
+			cout<<c;
+			i += 2;
+		}
+		else
+		{
+			char c = (s[i]-48)+96;
+			cout<<c;
+		}
+	}
+	cout<<endl;
 }
+
 int main()
 {
     //Faster Input Output
     FAST
-    int q=1; //cin>>q;
+    int q; cin>>q;
     while(q--)
     {
         solve();

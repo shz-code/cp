@@ -1,10 +1,10 @@
-// Problem: B. Books
-// Contest: Codeforces Round #171 (Div. 2)
-// URL: https://codeforces.com/contest/279/problem/B
+// Problem: A. Crossmarket
+// Contest: Codeforces Round #816 (Div. 2)
+// URL: https://codeforces.com/problemset/problem/1715/A
 // Memory Limit: 256 MB
-// Time Limit: 2000 ms
-// Topic: Implementation
-// Problem Rating: 1400
+// Time Limit: 1000 ms
+// Topic: Greedy
+// Problem Rating: 800
   
  
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ //
@@ -23,28 +23,16 @@ using namespace std;
 
 void solve()
 {
-	ll n,k,sum=0,cnt=0;
-    cin>>n>>k;
-    ll a[n];
-    for(ll i=0;i<n;i++) cin>>a[i];
-    for(ll i=0;i<n;i++) 
-    {
-    	sum += a[i];
-    	if(sum <= k)
-    	{
-    		cnt++;
-    	}
-    	else{
-    		sum -= a[i];
-    	}
-    }
-    cout<<cnt<<nl;
+	int x,y; cin>>x>>y;
+	if(x == 1 && y == 1) cout<<0<<nl;
+	else if(x>=y) cout<<x-1+y-1+y<<nl;
+	else cout<<y-1+x-1+x<<nl;
 }
 int main()
 {
     //Faster Input Output
     FAST
-    int q=1; //cin>>q;
+    int q; cin>>q;
     while(q--)
     {
         solve();

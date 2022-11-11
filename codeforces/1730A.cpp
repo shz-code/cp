@@ -1,10 +1,10 @@
-// Problem: B. Books
-// Contest: Codeforces Round #171 (Div. 2)
-// URL: https://codeforces.com/contest/279/problem/B
+// Problem: A. Planets
+// Contest: Codeforces Round #823 (Div. 2)
+// URL: https://codeforces.com/problemset/problem/1730/A
 // Memory Limit: 256 MB
 // Time Limit: 2000 ms
-// Topic: Implementation
-// Problem Rating: 1400
+// Topic: Greedy
+// Problem Rating: 800
   
  
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ //
@@ -18,33 +18,32 @@
 using namespace std;
 
 #define FAST  ios_base::sync_with_stdio(false);cin.tie(NULL);
-#define ll long long
-#define nl "\n"
+
 
 void solve()
 {
-	ll n,k,sum=0,cnt=0;
-    cin>>n>>k;
-    ll a[n];
-    for(ll i=0;i<n;i++) cin>>a[i];
-    for(ll i=0;i<n;i++) 
+	int n,k; cin>>n>>k;
+    int a[n],ans=0;
+    map<int,int> m;
+    for(int i=0;i<n;i++)
     {
-    	sum += a[i];
-    	if(sum <= k)
-    	{
-    		cnt++;
-    	}
-    	else{
-    		sum -= a[i];
-    	}
+        cin>>a[i];
+        m[a[i]]++;
     }
-    cout<<cnt<<nl;
+	for(auto val:m)
+	{
+		if(val.second >= k) ans += k;
+		else if(val.second < k) ans += val.second;
+		else ans++;
+	}
+	cout<<ans<<endl;
 }
+
 int main()
 {
     //Faster Input Output
     FAST
-    int q=1; //cin>>q;
+    int q; cin>>q;
     while(q--)
     {
         solve();

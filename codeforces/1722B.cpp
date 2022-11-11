@@ -1,10 +1,10 @@
-// Problem: B. Books
-// Contest: Codeforces Round #171 (Div. 2)
-// URL: https://codeforces.com/contest/279/problem/B
+// Problem: B. Colourblindness
+// Contest: Codeforces Round #817 (Div. 4)
+// URL: https://codeforces.com/problemset/problem/1722/B
 // Memory Limit: 256 MB
-// Time Limit: 2000 ms
-// Topic: Implementation
-// Problem Rating: 1400
+// Time Limit: 1000 ms
+// Topic: String
+// Problem Rating: 800
   
  
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ //
@@ -18,33 +18,41 @@
 using namespace std;
 
 #define FAST  ios_base::sync_with_stdio(false);cin.tie(NULL);
-#define ll long long
-#define nl "\n"
+
 
 void solve()
 {
-	ll n,k,sum=0,cnt=0;
-    cin>>n>>k;
-    ll a[n];
-    for(ll i=0;i<n;i++) cin>>a[i];
-    for(ll i=0;i<n;i++) 
+	int n; cin>>n;
+    char a[2][n];
+    bool flag = true;
+    for(int i=0;i<2;i++)
     {
-    	sum += a[i];
-    	if(sum <= k)
-    	{
-    		cnt++;
-    	}
-    	else{
-    		sum -= a[i];
-    	}
+        for(int j=0;j<n;j++)
+        {
+            cin>>a[i][j];
+        }
     }
-    cout<<cnt<<nl;
+    for(int i=0;i<2;i++)
+    {
+        for(int j=0;j<n;j++)
+        {
+            if(a[i][j] == 'R' && a[i+1][j] != 'R' && i==0)
+            {
+            	flag = false;
+            }
+            else if(a[i][j] == 'R' && a[i-1][j] != 'R' && i==1)
+            {
+            	flag = false;
+            }
+        }
+    }
+    cout<< (flag ? "YES" : "NO") <<endl;
 }
 int main()
 {
     //Faster Input Output
     FAST
-    int q=1; //cin>>q;
+    int q; cin>>q;
     while(q--)
     {
         solve();

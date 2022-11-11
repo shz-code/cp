@@ -1,10 +1,10 @@
-// Problem: B. Books
-// Contest: Codeforces Round #171 (Div. 2)
-// URL: https://codeforces.com/contest/279/problem/B
+// Problem: A. K-divisible Sum
+// Contest: Educational Codeforces Round 103 (Rated for Div. 2)
+// URL: https://codeforces.com/problemset/problem/1476/A
 // Memory Limit: 256 MB
-// Time Limit: 2000 ms
-// Topic: Implementation
-// Problem Rating: 1400
+// Time Limit: 1000 ms
+// Topic: Greedy
+// Problem Rating: 1000
   
  
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ //
@@ -18,33 +18,28 @@
 using namespace std;
 
 #define FAST  ios_base::sync_with_stdio(false);cin.tie(NULL);
-#define ll long long
-#define nl "\n"
+
 
 void solve()
 {
-	ll n,k,sum=0,cnt=0;
+	int n,k;
     cin>>n>>k;
-    ll a[n];
-    for(ll i=0;i<n;i++) cin>>a[i];
-    for(ll i=0;i<n;i++) 
-    {
-    	sum += a[i];
-    	if(sum <= k)
-    	{
-    		cnt++;
-    	}
-    	else{
-    		sum -= a[i];
-    	}
+    if(n%k == 0) cout<<1<<endl;
+    else{
+        if(n>k)
+        {
+            cout<<2<<endl;
+        }
+        else{
+            cout<<(k%n == 0 ? k/n : 1 + k/n)<<endl;
+        }
     }
-    cout<<cnt<<nl;
 }
 int main()
 {
     //Faster Input Output
     FAST
-    int q=1; //cin>>q;
+    int q; cin>>q;
     while(q--)
     {
         solve();

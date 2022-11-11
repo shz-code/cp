@@ -1,10 +1,10 @@
-// Problem: B. Books
-// Contest: Codeforces Round #171 (Div. 2)
-// URL: https://codeforces.com/contest/279/problem/B
+// Problem: A. Two Elevators
+// Contest: Codeforces Round #820 (Div. 3)
+// URL: https://codeforces.com/problemset/problem/1729/A
 // Memory Limit: 256 MB
 // Time Limit: 2000 ms
 // Topic: Implementation
-// Problem Rating: 1400
+// Problem Rating: 800
   
  
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ //
@@ -18,33 +18,30 @@
 using namespace std;
 
 #define FAST  ios_base::sync_with_stdio(false);cin.tie(NULL);
-#define ll long long
-#define nl "\n"
+
 
 void solve()
 {
-	ll n,k,sum=0,cnt=0;
-    cin>>n>>k;
-    ll a[n];
-    for(ll i=0;i<n;i++) cin>>a[i];
-    for(ll i=0;i<n;i++) 
+	int a,b,c;
+    cin>>a>>b>>c;
+    if(a == 1)
     {
-    	sum += a[i];
-    	if(sum <= k)
-    	{
-    		cnt++;
-    	}
-    	else{
-    		sum -= a[i];
-    	}
+        cout<<1<<endl;
+        return;
     }
-    cout<<cnt<<nl;
+    else
+    {
+        if(a-1 > abs(b-c)+c-1) cout<<2<<endl;
+        else if(a-1 < abs(b-c)+c-1) cout<<1<<endl;
+        else cout<<3<<endl;
+    }
 }
+
 int main()
 {
     //Faster Input Output
     FAST
-    int q=1; //cin>>q;
+    int q; cin>>q;
     while(q--)
     {
         solve();
