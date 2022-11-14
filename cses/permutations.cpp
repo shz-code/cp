@@ -1,10 +1,10 @@
-// Problem: B. Borze
-// Contest: Codeforces Beta Round #32 (Div. 2, Codeforces format)
-// URL: https://codeforces.com/problemset/problem/32/B
-// Memory Limit: 256 MB
-// Time Limit: 2000 ms
+// Problem: Permutations
+// URL: https://cses.fi/problemset/task/1070
+// Memory Limit: 512 MB
+// Time Limit: 1000 ms
 // Topic: Implementation
   
+ 
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ //
 // ##                                                                         ## //
 // ##          Shahidul Alam || CSE,IUBAT || web.shahidul.alam@gmail.com      ## //
@@ -14,30 +14,29 @@
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ //
 #include <bits/stdc++.h>
 using namespace std;
-
-#define FAST  ios_base::sync_with_stdio(false);cin.tie(NULL);
-
 int main()
 {
-    //Faster Input Output
-    FAST
-    string s; cin>>s;
-    for(int i=0;i<s.size();i++)
+    int n, cnt = 2;
+    cin >> n;
+    int mid = n / 2;
+    if (n > 1 && n < 4)
     {
-        if(s[i] == '-' && s[i+1] == '-')
-        {
-            cout<<2;
-            i++;
-        }
-        else if(s[i] == '-' && s[i+1] == '.')
-        {
-            cout<<1;
-            i++;
-        }
-        else if(s[i] == '.')
-        {
-            cout<<0;
-        }
+        cout << "NO SOLUTION";
+        return 0;
+    }
+    for (int i = 0; i < mid; i++)
+    {
+        cout << cnt << " ";
+        if (cnt + 2 > n)
+            cnt++;
+        else
+            cnt += 2;
+    }
+    cnt = 1;
+    for (int i = mid; i < n; i++)
+    {
+        cout << cnt << " ";
+        cnt += 2;
     }
     return 0;
 }

@@ -5,21 +5,36 @@ using namespace std;
 #define ll long long
 #define nl "\n"
 
+const int MX = 1e6+123;
+const int M = 1e9+7;
+vector<int> v(MX);
+
+void pre_calc()
+{
+	v[0] = v[1] = 1;
+	for(int i=2;i<=MX;i++)
+	{
+		 v[i] = (v[i-1]+v[i-2])%M;
+		 // v[i+1] += v[i];
+		 // v[i+2] += v[i];		 
+	}
+}
+
 void solve()
 {
-	int x,y; cin>>x>>y;
-	if(x == 1 && y == 1) cout<<0<<nl;
-	else if(x>=y) cout<<x-1+y-1+y<<nl;
-	else cout<<y-1+x-1+x<<nl;
+	int n;
+	cin>>n;
+	cout<<v[n-1]<<nl;
 }
 int main()
 {
-    //Faster Input Output
+	//Faster Input Output
     FAST
-    int q; cin>>q;
-    while(q--)
-    {
-        solve();
-    }
-    return 0;
+    pre_calc();
+	int q;
+	cin >> q;
+	while (q--)
+	{
+		solve();
+	}
 }
