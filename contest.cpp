@@ -1,40 +1,37 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#define FAST  ios_base::sync_with_stdio(false);cin.tie(NULL);
+#define FAST  ios_base::sync_with_stdio(false); cin.tie(NULL);
 #define ll long long
 #define nl "\n"
-
-const int MX = 1e6+123;
-const int M = 1e9+7;
-vector<int> v(MX);
-
-void pre_calc()
-{
-	v[0] = v[1] = 1;
-	for(int i=2;i<=MX;i++)
-	{
-		 v[i] = (v[i-1]+v[i-2])%M;
-		 // v[i+1] += v[i];
-		 // v[i+2] += v[i];		 
-	}
-}
 
 void solve()
 {
 	int n;
 	cin>>n;
-	cout<<v[n-1]<<nl;
+	while(n--)
+	{
+		char c;
+		string str="";
+		for(int i=0;i<3;i++)
+		{
+			cin>>c;
+			c = tolower(c);
+			str += c;
+		}
+		if(str == "yes") cout<<"YES"<<nl;
+		else cout<<"NO"<<nl;
+	}
 }
 int main()
 {
-	//Faster Input Output
-    FAST
-    pre_calc();
-	int q;
-	cin >> q;
+	// Faster Input Output
+	FAST 
+	int q=1;
+	//cin >> q;
 	while (q--)
 	{
 		solve();
 	}
+	return 0;
 }
