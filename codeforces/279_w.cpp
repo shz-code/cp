@@ -1,10 +1,12 @@
-// Problem: A. Beautiful Year
-// Contest: Codeforces Round #166 (Div. 2)
-// URL: https://codeforces.com/problemset/problem/271/A
+// Problem: B. Books
+// Contest: Codeforces Round #171 (Div. 2)
+// URL: https://codeforces.com/contest/279/problem/B
 // Memory Limit: 256 MB
 // Time Limit: 2000 ms
-// Topic: Brute Force
+// Topic: Implementation
+// Problem Rating: 1400
   
+ 
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ //
 // ##                                                                         ## //
 // ##          Shahidul Alam || CSE,IUBAT || web.shahidul.alam@gmail.com      ## //
@@ -16,33 +18,36 @@
 using namespace std;
 
 #define FAST  ios_base::sync_with_stdio(false);cin.tie(NULL);
+#define ll long long
+#define nl "\n"
 
+void solve()
+{
+	ll n,k,sum=0,cnt=0;
+    cin>>n>>k;
+    ll a[n];
+    for(ll i=0;i<n;i++) cin>>a[i];
+    for(ll i=0;i<n;i++) 
+    {
+    	sum += a[i];
+    	if(sum <= k)
+    	{
+    		cnt++;
+    	}
+    	else{
+    		sum -= a[i];
+    	}
+    }
+    cout<<cnt<<nl;
+}
 int main()
 {
     //Faster Input Output
     FAST
-    int n; cin>>n;
-    while(1)
+    int q=1; //cin>>q;
+    while(q--)
     {
-        n++;
-        bool flag = true;
-        string s = to_string(n);
-        for(int i=0;i<s.size();i++)
-        {
-            for(int j=i+1;j<s.size();j++)
-            {
-            	if(s[i] == s[j])
-            	{
-            		flag = false;
-            		break;
-            	}
-            }
-        }
-        if(flag)
-        {
-        	cout<<n;
-        	break;
-        }
+        solve();
     }
     return 0;
 }
