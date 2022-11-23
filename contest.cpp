@@ -1,43 +1,52 @@
+// Problem: B. Books
+// Contest: Codeforces Round #171 (Div. 2)
+// URL: https://codeforces.com/contest/279/problem/B
+// Memory Limit: 256 MB
+// Time Limit: 2000 ms
+// Topic: Implementation
+// Problem Rating: 1400
+  
+ 
+// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ //
+// ##                                                                         ## //
+// ##          Shahidul Alam || CSE,IUBAT || web.shahidul.alam@gmail.com      ## //
+// ##                                                                         ## //
+// ##                        CF Handle : shz-code                             ## //
+// ##                                                                         ## //
+// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ //
 #include <bits/stdc++.h>
 using namespace std;
 
-#define FAST  ios_base::sync_with_stdio(false); cin.tie(0);
+#define FAST  ios_base::sync_with_stdio(false);cin.tie(NULL);
 #define ll long long
 #define nl "\n"
-#define for(start,n) for(int i=start;i<n;i++) 
 
 void solve()
 {
-	int l,r,x,a,b;
-	cin>>l>>r>>x;
-	cin>>a>>b;
-	int ltar=-1e9,rtar=1e9;
-	if(a-b == 0) cout<<0<<nl;
-	else if(abs(a-b) >= x) cout<<1<<nl;
-	else
-	{
-		if(abs(b-l) < x && abs(b-r) < x )
-		{
-			cout<<-1<<nl;
-		}
-		else
-		{
-			ltar = b-x;
-			rtar = b+x;
-			cout<<ltar<<" "<<rtar<<" "<<nl;			
-		}
-
-	}
+	ll n,k,sum=0,cnt=0,rmv=0;
+    cin>>n>>k;
+    ll a[n];
+    for(int i=0;i<n;i++) cin>>a[i];
+    for(int i=0;i<n;i++) 
+    {
+    	sum += a[i];
+    	if(sum <= k) cnt++;
+    	else
+    	{
+    		sum -= a[rmv];
+    		rmv++;
+    	};
+    }
+    cout<<cnt<<nl;
 }
 int main()
 {
-	// Faster Input Output
-	FAST 
-	int q;
-	cin >> q;
-	while (q--)
-	{
-		solve();
-	}
-	return 0;
+    //Faster Input Output
+    FAST
+    int q=1; //cin>>q;
+    while(q--)
+    {
+        solve();
+    }
+    return 0;
 }

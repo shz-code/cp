@@ -1,10 +1,10 @@
-// Problem: B. Books
-// Contest: Codeforces Round #171 (Div. 2)
-// URL: https://codeforces.com/contest/279/problem/B
+// Problem: A. Pasha and Stick
+// Contest: Codeforces Round #337 (Div. 2)
+// URL: https://codeforces.com/problemset/problem/610/A
 // Memory Limit: 256 MB
-// Time Limit: 2000 ms
-// Topic: Implementation
-// Problem Rating: 1400
+// Time Limit: 1000 ms
+// Topic: Math
+// Problem Rating: 1000
   
  
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ //
@@ -17,32 +17,32 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#define FAST  ios_base::sync_with_stdio(false);cin.tie(NULL);
+#define FAST  ios_base::sync_with_stdio(false); cin.tie(0);
 #define ll long long
 #define nl "\n"
 
 void solve()
 {
-	ll n,k,sum=0,cnt=0;
-    cin>>n>>k;
-    ll a[n];
-    for(ll i=0;i<n;i++) cin>>a[i];
-    for(ll i=0;i<n;i++) 
-    {
-    	sum += a[i];
-    	if(sum <= k) cnt++;
-    	else sum -= a[i];
-    }
-    cout<<cnt<<nl;
+	ll n;
+	cin>>n;
+	ll tmp = n/2;
+	if(n % 2 != 0) 
+	{
+		cout<<0<<nl;
+		return;
+	}
+	if(tmp % 2 == 0) cout<<(tmp/2)-1<<nl;
+	else cout<<tmp/2;
 }
 int main()
 {
-    //Faster Input Output
-    FAST
-    int q=1; //cin>>q;
-    while(q--)
-    {
-        solve();
-    }
-    return 0;
+	// Faster Input Output
+	FAST 
+	int q=1;
+	//cin >> q;
+	while (q--)
+	{
+		solve();
+	}
+	return 0;
 }
