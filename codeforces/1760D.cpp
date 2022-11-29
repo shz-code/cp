@@ -1,10 +1,10 @@
-// Problem: B. Drinks
-// Contest: Codeforces Round #126 (Div. 2)
-// URL: https://codeforces.com/problemset/problem/200/B
+// Problem: D. Challenging Valleys
+// Contest: Codeforces Round #835 (Div. 4)
+// URL: https://codeforces.com/contest/1760/problem/D
 // Memory Limit: 256 MB
 // Time Limit: 2000 ms
-// Topic: Math
-// Rating: 800
+// Topic: Implementation
+// Rating: 1000
   
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ //
 // ##                                                                         ## //
@@ -19,28 +19,34 @@ using namespace std;
 #define FAST  ios_base::sync_with_stdio(false);cin.tie(NULL);
 #define ll long long
 #define nl "\n"
-#define F first
-#define S second
 
 void solve()
 {
-	int n;
+	int n,y=0,res = 0;
     cin>>n;
-    double a[n];
-    double sum=0.0;
+    vector<int> v;
     for(int i=0;i<n;i++)
     {
-        cin>>a[i];
-        sum += (double) a[i];
+    	int x;
+        cin>>x;
+        if(y != x) v.push_back(x);
+        y = x;
     }
-    printf("%.12lf",sum/n);
+    int sz = v.size();
+    for(int i=0;i<sz;i++)
+    {
+        if(i == 0 && v[i] < v[i+1]) res++;
+        else if(i == sz - 1 && v[sz-2] > v[sz-1]) res++;
+        else if(v[i] < v[i-1] && v[i] < v[i+1]) res++;
+    }
+    cout<<(res < 2 ? "YES" : "NO")<<nl;
 }
 
 int main()
 {
     //Faster Input Output
     FAST
-    int q=1; //cin>>q;
+    int q; cin>>q;
     while(q--)
     {
         solve();

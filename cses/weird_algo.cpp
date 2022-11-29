@@ -1,16 +1,14 @@
-// Problem: B. Drinks
-// Contest: Codeforces Round #126 (Div. 2)
-// URL: https://codeforces.com/problemset/problem/200/B
-// Memory Limit: 256 MB
-// Time Limit: 2000 ms
-// Topic: Math
-// Rating: 800
-  
+// Problem: Weird Algorithm
+// URL: https://cses.fi/problemset/task/1068
+// Memory Limit: 512 MB
+// Time Limit: 1000 ms
+ 
+ 
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ //
 // ##                                                                         ## //
 // ##          Shahidul Alam || CSE,IUBAT || web.shahidul.alam@gmail.com      ## //
 // ##                                                                         ## //
-// ##                        CF Handle : shz-code                             ## //
+// ##                        CSES Handle : shz-code                           ## //
 // ##                                                                         ## //
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ //
 #include <bits/stdc++.h>
@@ -19,21 +17,19 @@ using namespace std;
 #define FAST  ios_base::sync_with_stdio(false);cin.tie(NULL);
 #define ll long long
 #define nl "\n"
-#define F first
-#define S second
 
 void solve()
 {
-	int n;
+	ll n;
     cin>>n;
-    double a[n];
-    double sum=0.0;
-    for(int i=0;i<n;i++)
+    cout<<n<<" ";
+    while(1)
     {
-        cin>>a[i];
-        sum += (double) a[i];
+    	if(n == 1) break;
+        if(n & 1) n = (n*3) + 1 ;
+        else n /= 2;
+        cout<<n<<" ";
     }
-    printf("%.12lf",sum/n);
 }
 
 int main()

@@ -1,19 +1,3 @@
-// Problem: B. Books
-// Contest: Codeforces Round #171 (Div. 2)
-// URL: https://codeforces.com/contest/279/problem/B
-// Memory Limit: 256 MB
-// Time Limit: 2000 ms
-// Topic: Implementation
-// Problem Rating: 1400
-  
- 
-// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ //
-// ##                                                                         ## //
-// ##          Shahidul Alam || CSE,IUBAT || web.shahidul.alam@gmail.com      ## //
-// ##                                                                         ## //
-// ##                        CF Handle : shz-code                             ## //
-// ##                                                                         ## //
-// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ //
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -23,21 +7,23 @@ using namespace std;
 
 void solve()
 {
-	ll n,k,sum=0,cnt=0,rmv=0;
-    cin>>n>>k;
-    ll a[n];
-    for(int i=0;i<n;i++) cin>>a[i];
-    for(int i=0;i<n;i++) 
+	int n;
+    cin>>n;
+    int a[n];
+    if(n & 1) 
     {
-    	sum += a[i];
-    	if(sum <= k) cnt++;
-    	else
-    	{
-    		sum -= a[rmv];
-    		rmv++;
-    	};
+        cout<<-1;
+        return;
     }
-    cout<<cnt<<nl;
+    for(int i=0;i<n;i++) a[i] = i + 1;
+    for(int i=0;i<n-1;i+=2)
+    {
+        swap(a[i],a[i+1]);
+    }
+    for(int i=0;i<n;i++)
+    {
+        cout<<a[i]<<" ";
+    }
 }
 int main()
 {

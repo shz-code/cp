@@ -1,16 +1,14 @@
-// Problem: B. Drinks
-// Contest: Codeforces Round #126 (Div. 2)
-// URL: https://codeforces.com/problemset/problem/200/B
-// Memory Limit: 256 MB
-// Time Limit: 2000 ms
-// Topic: Math
-// Rating: 800
-  
+// Problem: Repetitions
+// URL: https://cses.fi/problemset/task/1069
+// Memory Limit: 512 MB
+// Time Limit: 1000 ms
+ 
+ 
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ //
 // ##                                                                         ## //
 // ##          Shahidul Alam || CSE,IUBAT || web.shahidul.alam@gmail.com      ## //
 // ##                                                                         ## //
-// ##                        CF Handle : shz-code                             ## //
+// ##                        CSES Handle : shz-code                           ## //
 // ##                                                                         ## //
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ //
 #include <bits/stdc++.h>
@@ -19,21 +17,20 @@ using namespace std;
 #define FAST  ios_base::sync_with_stdio(false);cin.tie(NULL);
 #define ll long long
 #define nl "\n"
-#define F first
-#define S second
 
 void solve()
 {
-	int n;
-    cin>>n;
-    double a[n];
-    double sum=0.0;
-    for(int i=0;i<n;i++)
+	string s;
+    cin>>s;
+    int cnt=0,ans=0;
+    for(int i=0;i<s.size();i++)
     {
-        cin>>a[i];
-        sum += (double) a[i];
+        char x = s[i];
+        if(i == 0 || s[i-1] != x) cnt = 1;
+        else if(s[i-1] == x) cnt++;
+        ans = max(ans,cnt);
     }
-    printf("%.12lf",sum/n);
+    cout<<ans;
 }
 
 int main()
