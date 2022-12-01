@@ -23,15 +23,19 @@ using namespace std;
 
 void solve()
 {
-	ll n,k,sum=0,cnt=0;
+	ll n,k,sum=0,cnt=0,rmv=0;
     cin>>n>>k;
     ll a[n];
-    for(ll i=0;i<n;i++) cin>>a[i];
-    for(ll i=0;i<n;i++) 
+    for(int i=0;i<n;i++) cin>>a[i];
+    for(int i=0;i<n;i++) 
     {
     	sum += a[i];
     	if(sum <= k) cnt++;
-    	else sum -= a[i];
+    	else
+    	{
+    		sum -= a[rmv];
+    		rmv++;
+    	};
     }
     cout<<cnt<<nl;
 }
