@@ -30,6 +30,7 @@ void solve()
     cin>>n>>m;
     for(int i=0;i<n;i++) cin>>a[i];
     ll lo = 0, hi = 1e9;
+    //TTTTTTTFFFFFFFFF
     while(hi - lo > 1)
     {
         ll mid = (lo+hi)/2;

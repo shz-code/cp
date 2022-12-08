@@ -33,6 +33,7 @@ void solve()
 	for(int i=0;i<n;i++) cin>>a[i];
 	sort(a,a+n);
 	int lo = 0, hi = 1e9;
+	//TTTTTTTTFFFFFFFF
 	while(hi - lo > 1)
 	{
 		int mid = (lo + hi)/2;
