@@ -1,3 +1,7 @@
+# Handles
+- [Codeforces(shz-code)](https://codeforces.com/profile/shz-code)
+- [Toph(shz_code)](https://toph.co/u/shz_code)
+
 # CP Quick Hacks
 
 #### Faster IO Template
@@ -49,5 +53,5 @@ int main()
 
 | Solved             | Monthly Target                                                     |
 | -----------------  | ------------------------------------------------------------------ |
-| 54                 |                              60                                    |
+| 67                 |                              60                                    |
 
