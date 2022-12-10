@@ -2,21 +2,28 @@
 using namespace std;
 
 #define FAST  ios_base::sync_with_stdio(false);cin.tie(NULL);
-#define ll long long
+#define ll unsigned long long
 #define nl "\n"
 
 void solve()
 {
     int n;
     cin>>n;
-    int cnt=0;
-    for(int i=1;i<=n/2;i++)
+    int a[8];
+    for(int i=1;i<=7;i++) cin>>a[i];
+    while(n > 0)
     {
-    	if(n%i==0) cnt++;
-    }
-    cout<<cnt;
+	    for(int i=1;i<=7;i++)
+	    {
+	        n -= a[i];
+	        if(n <= 0)
+	        {
+	        	cout<<i<<nl;
+	        	break;
+	        }
+	    }
+	}
 }
-
 int main()
 {
     //Faster Input Output
