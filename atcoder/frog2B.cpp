@@ -10,34 +10,27 @@ using namespace std;
 
 const int MX= 1e5+123;
 vector<int> dyno(MX,-1);
-int a[MX];
+int h[MX],k;
 
 int dp(int n)
 {
-	if(n == 1) return 1;
-    int ans = 1;
-    for(int i=0;i<n;i++)
+    if(n == 1) return 0;
+    if(dyno[n] != -1) return dyno[n];
+    int cost = INT_MAX;
+    for(int i=1;i<=k;i++)
     {
-        if(a[n] > a[i])
-        {
-            ans = max(ans,dp(i)+1);
-        }
+    	if(n - i > 0)
+			cost = min(dp(n-i) + abs(h[n] - h[n-i]),cost);	
     }
-    cout<<n<<nl;
-    return ans;
+    return dyno[n] = cost;
 }
 
 void solve()
 {
 	int n;
-    cin>>n;
-    for(int i=1;i<=n;i++) cin>>a[i];
-    int ans = 0;
-    for(int i=1;i<=n;i++)
-    {
-        ans = max(ans,dp(i));
-    }
-    //cout<<dp(7);
+    cin>>n>>k;
+    for(int i=1;i<=n;i++) cin>>h[i];
+    cout<<dp(n);
 }
 
 int main()

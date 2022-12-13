@@ -1,19 +1,24 @@
+// Math
+// Problem: https://www.codechef.com/DEC221D/problems/DIVBYK
 #include <bits/stdc++.h>
 using namespace std;
 
 #define FAST  ios_base::sync_with_stdio(false);cin.tie(NULL);
-#define ll long long
+#define ll unsigned long long
 #define nl "\n"
 
 void solve()
 {
-	int a,b;
-	cin>>a>>b;
-	int tmp = (a+b)>>1;
-	if(tmp%2==0) cout<<"Sadia will be happy."<<nl;
-	else cout<<"Oops!"<<nl;
+    int n,k;
+    cin>>n>>k;
+    ll a[n],ans=1;
+    for(int i=0;i<n;i++)
+    {
+        cin>>a[i];
+        ans = (ans*a[i])%k;
+    }
+    cout<<(ans==0?"YES":"NO")<<nl;
 }
-
 int main()
 {
     //Faster Input Output
