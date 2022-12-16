@@ -1,3 +1,4 @@
+//Kadane Algorithm
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -5,18 +6,22 @@ using namespace std;
 #define ll long long
 #define nl "\n"
 
-double cgpa(double x)
-{
-	double res;
-	if(x >= 80 and x <= 100) res = 4;
-	return res;
-}
-
 void solve()
 {
-	int n,m;
-	cin>>n>>m;
-	cout<<(20000.0-10009.0)/7.0;
+	int n;
+    cin>>n;
+    int a[n];
+    ll sum=0,mx=-1e9;
+    for(int i=0;i<n;i++)
+    {
+        cin>>a[i];
+    }
+    for(int i=0;i<n;i++)
+    {
+        sum += a[i];
+        mx= max(mx,sum);
+        if(sum<0) sum=0;
+    }
 }
 int main()
 {

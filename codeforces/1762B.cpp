@@ -1,3 +1,5 @@
+// Number Theory
+// Problem: https://codeforces.com/contest/1762/problem/B
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -11,10 +13,18 @@ using namespace std;
 
 void solve()
 {
-	double a,b;
-    cin>>a>>b;
-    double ans = (a-b)/2.0;
-    printf("%.4lf\n",ans);
+	int n;
+    cin>>n;
+    int a[n];
+    for(int i=0;i<n;i++) cin>>a[i];
+    vector<pair<ll,ll>> ans;
+    for(int i=0;i<n;i++)
+    {
+        ll x = (1<<(ll)(log2(a[i])+1));
+        if(x-a[i]>0) ans.pb({i+1,(x-a[i])});
+    }
+    cout<<ans.size()<<nl;
+    for(auto val:ans) cout<<val.F<<" "<<val.S<<nl;
 }
 
 int main()
