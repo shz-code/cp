@@ -4,7 +4,6 @@ using namespace std;
 
 typedef long long ll;
 
-#define nl "\n"
 #define vall(v) v.begin(), v.end()
 
 void code();
@@ -22,22 +21,16 @@ int main()
 
 void code()
 {
-    int n;
-    cin>>n;
-    if(n&1)
+    int n,m,k;
+    cin>>n>>m>>k;
+    int mx = 0;
+    for(int i=0;i<m;i++)
     {
-        vector<pair<int,int>> ans;
-        ans.push_back({1,n-1});
-        for(int i=2;i*i<=n;i++)
-        {
-            if(n%i==0)
-            {
-	            ans[0].first = (n/i);
-	            ans[0].second = (n-(n/i));
-	            break;
-            }
-        }
-        cout<<ans[0].first<<" "<<ans[0].second<<nl;
+        int x;
+        cin>>x;
+        mx = max(mx,x);
     }
-    else cout<<n/2<<" "<<n/2<<nl;
+    if(mx > (n+k-1)/k) cout<<"NO"<<endl;
+    else cout<<"YES"<<endl;
+    
 }
