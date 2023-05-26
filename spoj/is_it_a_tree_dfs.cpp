@@ -1,4 +1,4 @@
-// https://www.spoj.com/problems/BUGLIFE/
+// https://www.spoj.com/problems/PT07Y/
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -15,40 +15,28 @@ const int MX = 1e5+123;
 
 vector<bool> visited(MX,false);
 vector<vector<int>> v(MX);
-vector<int> color(MX,-1);
 
-bool dfs(int i,int c)
+void dfs(int i)
 {
-	visited[i] = true;
-	color[i] = c;
+	if(visited[i]) return;
 	
+	visited[i] = true;
 	
 	for(auto node: v[i])
 	{
-		if(!visited[node])
-		{
-			if(!dfs(node,!c)) return false;
-		}
-		else if(visited[node] and color[node] == color[i])
-		{
-			return false;
-		}
+		dfs(node);
 	}
-	return true;
 }
 
 void solve()
 {
 	int n,m;
 	cin>>n>>m;
-
-	for(int i=0;i<=n;i++)
+	if(m != n-1)
 	{
-		v[i].clear();
-		visited[i] = 0;
-		color[i] = -1;
+		cout<<"NO"<<nl;
+		return;
 	}
-
 	while(m--)
 	{
 		int x,y;
@@ -56,26 +44,26 @@ void solve()
 		v[x].pb(y);
 		v[y].pb(x);
 	}
-	bool res;
+	dfs(1);
 	for(int i=1;i<=n;i++)
 	{
-		if(!visited[i])
+		if(visited[i] == 0)
 		{
-			res = dfs(i,0);
-			if(!res) break;
+			cout<<"NO"<<nl;
+			return;
 		}
 	}
-	cout<<(res?"No suspicious bugs found!":"Suspicious bugs found!")<<nl;
+	cout<<"YES"<<nl;
 }
 
 int main()
 {
     // Faster Input Output
     LANCER 
-    int q = 1; cin>>q;
+    int q = 1; // cin>>q;
     for (int i=1;i<=q;i++)
     {
-        cout<<"Scenario #"<<i<<": "<<nl;
+        // cout<<"Case "<<i<<": ";
         solve();
     }
     return 0;
